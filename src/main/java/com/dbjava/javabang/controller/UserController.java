@@ -8,16 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-public class HomeController {
+public class UserController {
 
-  @GetMapping("/")
-  public String index() {
-    log.debug("1111");
-    log.info("2222");
-    log.error("3333");
-    log.trace("4444");
-    log.warn("5555");
-    return "index";
+  @GetMapping("/login")
+  public String login() {
+    return "user/login";
   }
 
 }
