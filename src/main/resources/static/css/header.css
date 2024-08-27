@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+}
+
+.headerLogoBox {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logoImg {
+  width: 70px;
+  height: 70px;
+}
+
+.headerSearchBox {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar {
+  width: 500px;
+  border-radius: 30px;
+  padding-left: 20px;
+
+  outline: none;
+  box-shadow: none;
+}
+.search-btn {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 0 30px 30px 0;
+  position: absolute;
+  right: 1px;
+  border: none;
+}
+
+.search-btn:hover {
+  background-color: #f8215c;
+  cursor: pointer;
+}
+
+
+.headerElseBox {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

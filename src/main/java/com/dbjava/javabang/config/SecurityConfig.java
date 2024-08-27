@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -28,6 +29,7 @@ public class SecurityConfig {
                 .requestMatchers("/**").permitAll() // /public 아래의 URL에 대한 공개 액세스를 허용합니다.
                 .anyRequest().authenticated() // 기타 모든 요청에는 인증이 필요합니다.
         )
+        .csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/**"))) // CSRF(Cross-Site Request Forgery) 방지)
         .formLogin(formLogin ->
             formLogin
                 .loginPage("/login") // 사용자 정의 로그인 페이지
