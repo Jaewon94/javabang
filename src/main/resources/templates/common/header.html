@@ -26,6 +26,11 @@
       <div sec:authorize="isAnonymous()">
         <a th:href="@{/login}"><button class="btn">로그인</button></a>
       </div>
+      <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <a th:href="@{/admin/adminPage/{id}(id=${#authentication.principal.id})}">
+          <button class="btn">관리자</button>
+        </a>
+      </div>
       <div class="loginElseBox" sec:authorize="isAuthenticated()">
         <a th:href="@{/rent/rentManage/{id}(id=${#authentication.principal.id})}"><button class="btn">호스트</button></a>
         <a th:href="@{/member/mypage/{id}(id=${#authentication.principal.id})}">
@@ -35,11 +40,6 @@
           <button type="submit" class="btn">로그아웃</button>
         </form>
 <!--        <img class="profileImg" th:src="${#authentication.principal.profileImageUrl}" alt="Profile Image">-->
-      </div>
-      <div sec:authorize="hasRole('ROLE_ADMIN')">
-        <a th:href="@{/admin/adminPage/{id}(id=${#authentication.principal.id})}">
-          <button class="btn">관리자 페이지</button>
-        </a>
       </div>
     </div>
   </div>
