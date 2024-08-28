@@ -11,24 +11,27 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/javabang.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/dbjava/javabang/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/dbjava/javabang/config/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/dbjava/javabang/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/dbjava/javabang/controller/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/common/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/common/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +60,23 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Jaewon94"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
       <RecentBranches>
@@ -85,9 +102,19 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:Jaewon94/javabang.git",
+    "accountId": "6ce93954-9dd9-4b30-a548-21da005136d9"
+  }
+}]]></component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -109,8 +136,10 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JavabangApplication.executor": "Run",
-    "git-widget-placeholder": "header/7",
+    "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "GrepConsole",
@@ -151,6 +180,7 @@
       <workItem from="1719470261722" duration="353000" />
       <workItem from="1723767322915" duration="224000" />
       <workItem from="1724728708838" duration="197000" />
+      <workItem from="1724804632091" duration="7930000" />
     </task>
     <servers />
   </component>

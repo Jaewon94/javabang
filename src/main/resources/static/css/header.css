@@ -15,7 +15,7 @@
 }
 
 .headerSearchBox {
-  flex: 3;
+  flex: 1;
   display: flex;
   justify-content: center;
 }
@@ -54,4 +54,16 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.loginElseBox {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profileImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }

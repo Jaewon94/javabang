@@ -5,39 +5,38 @@
 </head>
 <body>
 <header layout:fragment="header">
+
   <div class="header container">
     <div class="headerLogoBox">
-        <a th:href="@{/}">
-          <img class="logoImg" th:src="@{/images/javaBang.png}" alt="Java Bang Logo">
-        </a>
+      <a th:href="@{/}">
+        <img class="logoImg" th:src="@{/images/javaBang.png}" alt="Java Bang Logo">
+      </a>
     </div>
     <div class="headerSearchBox">
       <form method="GET" th:action="@{/search}" class="search-form">
-        <label for="searchInput"></label>
+        <label for="searchInput" class="sr-only">Search</label>
         <input class="search-bar" type="search" name="query" id="searchInput" placeholder="검색어를 입력하세요" required>
         <button class="search-btn" type="submit" id="searchButton">
           <i class="fas fa-search"></i>
         </button>
       </form>
     </div>
+
     <div class="headerElseBox">
-      <div sec:authorize="isAuthenticated()">
-        <a th:href="@{/rent/rentManage/{id}(id=${#authentication.principal.id})}">호스트페이지</a>
-      </div>
       <div sec:authorize="isAnonymous()">
         <a th:href="@{/login}"><button class="btn">로그인</button></a>
       </div>
-      <div sec:authorize="isAuthenticated()">
-        <img th:src="${#authentication.principal.profile}" alt="Profile Image">
-        <h4 th:text="${#authentication.principal.userNick} + '님 환영합니다!'"></h4>
-        <form th:action="@{/logout}" method="post" style="display: inline;">
-          <button type="submit" class="btn">로그아웃</button>
-        </form>
+      <div class="loginElseBox" sec:authorize="isAuthenticated()">
+        <a th:href="@{/rent/rentManage/{id}(id=${#authentication.principal.id})}"><button class="btn">호스트</button></a>
         <a th:href="@{/member/mypage/{id}(id=${#authentication.principal.id})}">
           <button class="btn">마이페이지</button>
         </a>
+        <form th:action="@{/logout}" method="post" class="logout-form">
+          <button type="submit" class="btn">로그아웃</button>
+        </form>
+<!--        <img class="profileImg" th:src="${#authentication.principal.profileImageUrl}" alt="Profile Image">-->
       </div>
-      <div sec:authorize="hasRole('ADMIN')">
+      <div sec:authorize="hasRole('ROLE_ADMIN')">
         <a th:href="@{/admin/adminPage/{id}(id=${#authentication.principal.id})}">
           <button class="btn">관리자 페이지</button>
         </a>

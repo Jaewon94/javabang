@@ -42,6 +42,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
 }
 
 tasks.named('test') {
