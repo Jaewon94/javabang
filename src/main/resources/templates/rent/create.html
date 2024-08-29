@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+  <title>숙소 등록</title>
+  <link rel="stylesheet" th:href="@{/css/accommodationCreate.css}"/>
+
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f47f9b60b05a45cfdd053b7685ec8c11&libraries=services"></script></head>
+<body>
+
+<!-- Main Content -->
+<main layout:fragment="content">
+  <div class="container mt-5 accommodationCreate">
+
+    <h1 class="mb-4">당신의 멋진 숙소를 등록해주세요 😉</h1>
+
+    <form th:action="@{/host/{userId}/create(userId=${#authentication.principal.id})}" method="post" enctype="multipart/form-data">
+      <!-- Step 1: 숙소 종류 선택 -->
+      <div class="mb-4">
+        <h2>숙소의 종류를 선택해주세요</h2>
+        <div class="row">
+          <div class="col-md-2 mb-3" th:each="category : ${categories}">
+            <div class="card">
+              <img th:src="@{'/images/essentials/' + ${category} + '.png'}" class="card-img-top categoryImg" th:alt="${category}">
+              <div class="card-body">
+                <div class="form-check" style="display: flex; justify-content: center">
+                  <input class="form-check-input" type="radio" name="category" th:id="${category}" th:value="${category}">
+                  <label class="form-check-label" th:for="${category}" th:text="${category}"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: 숙소 유형 -->
+      <div class="mb-4">
+        <h2>게스트가 사용할 숙소 유형</h2>
+        <div class="row">
+          <div class="col-md-4 mb-3" th:each="type : ${roomTypes}">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" th:text="${type}"></h5>
+                <p class="card-text" th:text="${type == '독채' ? '게스트가 숙소 전체를 사용합니다' :
+                                                               (type == '원룸' ? '게스트가 묵을 숙소가 방이 하나인 타입입니다' :
+                                                               '게스트가 묵을 숙소가 방이 여러개인 타입입니다')}"></p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="roomType" th:id="${type}" th:value="${type}">
+                  <label class="form-check-label" th:for="${type}" th:text="${type}"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: 숙소 기본 정보 -->
+      <div class="mb-4">
+        <h2>숙소 기본 정보를 알려주세요</h2>
+        <div class="row">
+          <div class="col-md-3 mb-3" th:each="item : ${items}">
+            <div class="input-group">
+              <span class="input-group-text" th:text="${item}"></span>
+              <input type="number" th:name="${item + 'Count'}" class="form-control" min="0" value="0">
+              <button class="btn btn-outline-secondary" type="button">+</button>
+              <button class="btn btn-outline-secondary" type="button">-</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: 편의시설 -->
+      <div class="mb-4">
+        <h2>숙소 편의시설 정보를 추가하세요</h2>
+        <div class="row">
+          <div class="col-md-3 mb-3" th:each="amenity : ${amenities}">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" th:id="${amenity}" th:value="${amenity}" name="amenities">
+              <label class="form-check-label" th:for="${amenity}">
+                <img th:src="@{'/images/essentials/' + ${amenity} + '.png'}" th:alt="${amenity}" class="me-2" style="width: 24px; height: 24px;">
+                <span th:text="${amenity}"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: 사진 업로드 -->
+      <div class="mb-4">
+        <h2>사진을 넣어주세요</h2>
+        <div class="mb-3">
+          <label for="mainImage" class="form-label">메인 이미지</label>
+          <input class="form-control" type="file" id="mainImage" name="mainImageUrl" required>
+        </div>
+        <div class="mb-3">
+          <label for="subImages" class="form-label">추가 이미지들</label>
+          <input class="form-control" type="file" id="subImages" name="subImagesUrls" multiple required>
+        </div>
+      </div>
+
+      <!-- Step 6: 숙소 정보 입력 -->
+      <div class="mb-4">
+        <h2>숙소의 정보들을 입력해주세요</h2>
+        <div class="mb-3">
+          <input type="text" class="form-control" name="title" placeholder="숙소 이름">
+        </div>
+        <div class="mb-3">
+          <input type="number" class="form-control" name="price" min="0" step="1000" placeholder="숙소 가격(1박 기준)">
+        </div>
+        <div class="mb-3">
+          <input type="tel" class="form-control" name="contactNum" placeholder="숙소 대표 전화번호">
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" name="description" rows="3" placeholder="숙소 소개"></textarea>
+        </div>
+      </div>
+
+      <!-- Step 7: 위치 정보 -->
+      <div class="mb-4">
+        <h2>숙소의 위치를 알려주세요</h2>
+        <div id="map" style="width:100%;height:400px;"></div>
+        <div id="clickLatlng" class="mt-3"></div> <!-- 클릭한 위치의 주소를 표시할 영역 추가 -->
+        <div class="mt-3">
+          <select id="locationSelect" name="sido" class="form-select mb-2">
+            <option value="">시·도 선택</option>
+            <option th:each="sido : ${sido}" th:value="${sido}" th:text="${sido}"></option>
+          </select>
+          <input type="text" class="form-control mb-2" name="sigugun" placeholder="시·구·군">
+          <input type="text" class="form-control mb-2" name="gueup" placeholder="구·읍(해당하는 경우만)">
+          <input type="text" class="form-control mb-2" name="road" placeholder="도로명 주소">
+          <input type="text" class="form-control mb-2" name="detailAddress" placeholder="상세주소">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">등록하기</button>
+    </form>
+
+  </div>
+  <script type="text/javascript">
+
+    var mapContainer = document.getElementById('map'),
+        mapOption = {
+          center: new kakao.maps.LatLng(33.450701, 126.570667), // 기본 위치 설정
+          level: 3 // 줌 레벨 설정
+        };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    var marker = new kakao.maps.Marker({
+      position: map.getCenter()
+    });
+    marker.setMap(map);
+
+    var geocoder = new kakao.maps.services.Geocoder();
+
+    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+      var latlng = mouseEvent.latLng;
+
+      // 마커 위치 이동
+      marker.setPosition(latlng);
+
+      // 좌표를 주소로 변환
+      geocoder.coord2Address(latlng.getLng(), latlng.getLat(), function(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          var message = result[0].road_address ? result[0].road_address.address_name : result[0].address.address_name;
+          var resultDiv = document.getElementById('clickLatlng');
+          resultDiv.innerText = message;
+
+          const addressParts = message.split(' ');
+          const select = document.querySelector('select[name="sido"]');
+          const sigugun = document.querySelector('input[name="sigugun"]');
+          const gueup = document.querySelector('input[name="gueup"]');
+          const road = document.querySelector('input[name="road"]');
+
+          // 필드 초기화
+          select.options[0].selected = true;
+          sigugun.value = "";
+          gueup.value = "";
+          road.value = "";
+
+          for (let i = 0; i < addressParts.length; i++) {
+            if (i == 0) {
+              const option = document.querySelector('option[value="' + addressParts[i] + '"]');
+              option.selected = true;
+            } else if (i == 1) {
+              sigugun.value = addressParts[i];
+            } else if ('구읍'.includes(addressParts[i].charAt(addressParts[i].length - 1))) {
+              gueup.value = addressParts[i];
+            } else {
+              road.value += addressParts[i] + " ";
+            }
+          }
+        }
+      });
+    });
+
+    // 시도 선택시 해당 시도의 시(도)청으로 이동
+    document.getElementById('locationSelect').addEventListener('change', function() {
+
+      var locations = {
+        '서울특별시': { lat: 37.5665, lng: 126.9780 }, // 서울특별시청
+        '부산광역시': { lat: 35.1796, lng: 129.0756 }, // 부산광역시청
+        '대구광역시': { lat: 35.8714, lng: 128.6014 }, // 대구광역시청
+        '인천광역시': { lat: 37.4563, lng: 126.7052 }, // 인천광역시청
+        '광주광역시': { lat: 35.1595, lng: 126.8526 }, // 광주광역시청
+        '대전광역시': { lat: 36.3504, lng: 127.3845 }, // 대전광역시청
+        '울산광역시': { lat: 35.5396, lng: 129.3115 }, // 울산광역시청
+        '세종특별자치시': { lat: 36.4800, lng: 127.2890 }, // 세종특별자치시청
+        '경기도': { lat: 37.2751, lng: 127.0095 }, // 경기도청 (수원)
+        '강원특별자치도': { lat: 37.8228, lng: 128.1555 }, // 강원도청 (춘천)
+        '충청북도': { lat: 36.6359, lng: 127.4914 }, // 충청북도청 (청주)
+        '충청남도': { lat: 36.6588, lng: 126.6728 }, // 충청남도청 (내포신도시)
+        '전라북도': { lat: 35.8213, lng: 127.1480 }, // 전라북도청 (전주)
+        '전라남도': { lat: 34.8161, lng: 126.4629 }, // 전라남도청 (무안)
+        '경상북도': { lat: 36.5759, lng: 128.5057 }, // 경상북도청 (안동)
+        '경상남도': { lat: 35.4606, lng: 128.2132 }, // 경상남도청 (창원)
+        '제주특별자치도': { lat: 33.4996, lng: 126.5312 } // 제주특별자치도청 (제주)
+      };
+
+      var selectedLocation = this.value;
+
+      if (selectedLocation && locations[selectedLocation]) {
+        var latLng = new kakao.maps.LatLng(locations[selectedLocation].lat, locations[selectedLocation].lng);
+        map.setCenter(latLng);
+
+        // Optionally, you can add a marker to the selected location
+        var marker = new kakao.maps.Marker({
+          position: latLng
+        });
+        marker.setMap(map);
+      }
+    });
+  </script>
+</main>
+
+</body>
+</html>

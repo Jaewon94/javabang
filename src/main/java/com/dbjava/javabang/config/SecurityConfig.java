@@ -44,6 +44,7 @@ public class SecurityConfig {
                 .logoutUrl("/logout") // 로그아웃 URL
                 .logoutSuccessUrl("/") // 로그아웃 성공 시 이동할 URL
                 .deleteCookies("JSESSIONID")  // 세션 쿠키 삭제
+                .invalidateHttpSession(true) // HttpSession invalidate
                 .permitAll()
         );
 

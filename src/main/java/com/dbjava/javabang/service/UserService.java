@@ -40,4 +40,8 @@ public class UserService {
     user.setPassword(passwordEncoder.encode(dto.getPassword())); // password encryption
     userRepository.save(user);
   }
+
+  public User findById(Long userId) {
+    return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found."));
+  }
 }

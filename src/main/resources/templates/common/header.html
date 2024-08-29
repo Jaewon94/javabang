@@ -32,7 +32,7 @@
         </a>
       </div>
       <div class="loginElseBox" sec:authorize="isAuthenticated()">
-        <a th:href="@{/rent/rentManage/{id}(id=${#authentication.principal.id})}"><button class="btn">호스트</button></a>
+        <a th:href="@{/host/rentManage/{id}(id=${#authentication.principal.id})}"><button class="btn">호스트</button></a>
         <a th:href="@{/member/mypage/{id}(id=${#authentication.principal.id})}">
           <button class="btn">마이페이지</button>
         </a>

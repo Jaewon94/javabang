@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,5 +34,18 @@ public class AccommodationImage {
 
   @Column(nullable = false)
   private String imageUrl;
+
+  public AccommodationImage(Accommodation accommodation, String imagePath) {
+    this.accommodation = accommodation;
+    this.imageUrl = imagePath;
+  }
+
+
+  // 연관관계 편의 메서드
+  public void setAccommodation(Accommodation accommodation) {
+    this.accommodation = accommodation;
+
+    accommodation.getImages().add(this);
+  }
 
 }
