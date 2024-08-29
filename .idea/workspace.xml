@@ -14,17 +14,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/dbjava/javabang/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/dbjava/javabang/controller/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/common/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/respository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/respository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/Accommodation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/Accommodation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/AccommodationCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/AccommodationCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/AccommodationImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/AccommodationImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/AccommodationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/domain/entity/AccommodationType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbjava/javabang/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +37,26 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="javabang" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="javabang" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="javabang" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -79,8 +91,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="register/10" />
-                    <option name="lastUsedInstant" value="1724814395" />
+                    <option name="branchName" value="accomodation/13" />
+                    <option name="lastUsedInstant" value="1724829514" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="dev" />
@@ -129,7 +141,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.JavabangApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;register/10&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;accomodation/13&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -141,6 +153,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/images/essentials" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/images" />
     </key>
   </component>
@@ -177,10 +190,23 @@
       <workItem from="1724816065506" duration="141000" />
       <workItem from="1724816275628" duration="8000" />
       <workItem from="1724816334260" duration="6405000" />
+      <workItem from="1724837736987" duration="2119000" />
+      <workItem from="1724889551811" duration="18476000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
