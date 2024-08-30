@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Slf4j
@@ -53,6 +54,37 @@ public class HomeController {
   @GetMapping("/login")
   public String login() {
     return "user/login";
+  }
+
+  // 검색
+  @GetMapping("/search")
+  public String search(Model model,@RequestParam("keyword") String keyword, Principal principal) {
+
+    if (keyword.isEmpty()) {
+      return "redirect:/";
+    }
+    List<Accommodation> accommodations = accommodationService.findByKeyword(keyword);
+
+    if (principal != null) {
+      String username = principal.getName();
+      User user = userService.findByUsername(username);
+
+      Map<Long, Boolean> wishlistStatus = new HashMap<>();
+      for (Accommodation accommodation : accommodations) {
+        wishlistStatus.put(accommodation.getId(), accommodationService.isInWishlist(user, accommodation));
+      }
+      model.addAttribute("wishlistStatus", wishlistStatus);
+      model.addAttribute("isLoggedIn", true);
+    } else {
+      model.addAttribute("isLoggedIn", false);
+    }
+
+
+    model.addAttribute("categories", AccommodationCategory.values());
+    model.addAttribute("accommodations", accommodations);
+
+    return "index";
+
   }
 
 

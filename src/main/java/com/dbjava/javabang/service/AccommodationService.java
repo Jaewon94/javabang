@@ -112,4 +112,8 @@ public boolean isInWishlist(User user, Accommodation accommodation) {
   public Accommodation findById(Long accommodationId) {
     return accommodationRepository.findById(accommodationId).orElseThrow(() -> new IllegalArgumentException("Accommodation not found."));
   }
+
+  public List<Accommodation> findByKeyword(String keyword) {
+    return accommodationRepository.findByTitleContainingOrDescriptionContaining(keyword, keyword);
+  }
 }
