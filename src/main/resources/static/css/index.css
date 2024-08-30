@@ -1,0 +1,67 @@
+main {
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.categoryBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+}
+
+.categoryImgBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 0;
+
+  width: 100px;
+}
+
+.categoryImg {
+  width: 60px;
+  height: 60px;
+}
+
+.filter-btn {
+  border: none;
+  background-color: white;
+}
+
+.remove {
+  display: none;
+}
+
+/* 객실 카드*/
+.card {
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.wishlist-icons {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.wish {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.wish:hover {
+  opacity: 0.8;
+}
+.badge {
+  font-size: 0.8rem;
+}

@@ -130,7 +130,7 @@ input, textarea, select {
 
 /* Links */
 a {
-  color: var(--primary-color);
+  color: var(--text-color);
   text-decoration: none;
 }
 

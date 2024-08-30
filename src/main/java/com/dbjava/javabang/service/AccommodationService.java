@@ -2,7 +2,10 @@ package com.dbjava.javabang.service;
 
 import com.dbjava.javabang.domain.dto.RequestAccommodation;
 import com.dbjava.javabang.domain.entity.Accommodation;
+import com.dbjava.javabang.domain.entity.User;
+import com.dbjava.javabang.domain.entity.Wishlist;
 import com.dbjava.javabang.respository.AccommodationRepository;
+import com.dbjava.javabang.respository.WishlistRepository;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -16,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class AccommodationService {
 
   private final AccommodationRepository accommodationRepository;
+  private final WishlistRepository wishlistRepository;
 
   public List<Accommodation> findAllByUserId(Long userId) {
     return accommodationRepository.findAllByUserId(userId);
@@ -80,5 +84,32 @@ public class AccommodationService {
       e.printStackTrace();
       throw new RuntimeException("Failed to save file: " + file.getOriginalFilename(), e);
     }
+  }
+
+  public List<Accommodation> findAll() {
+    return accommodationRepository.findAll();
+  }
+
+//  위시리스트 관련 로직
+public boolean isInWishlist(User user, Accommodation accommodation) {
+  return user.getWishlists().stream()
+      .anyMatch(wishlist -> wishlist.getAccommodation().getId().equals(accommodation.getId()));
+}
+
+  public void addToWishlist(User user, Accommodation accommodation) {
+    if (!isInWishlist(user, accommodation)) {
+      Wishlist wishlist = new Wishlist(user, accommodation);
+      wishlistRepository.save(wishlist);
+    }
+  }
+
+  public void removeFromWishlist(User user, Accommodation accommodation) {
+    user.getWishlists().removeIf(wishlist -> wishlist.getAccommodation().getId().equals(accommodation.getId()));
+    // 데이터베이스에서도 삭제
+    wishlistRepository.deleteByUserAndAccommodation(user, accommodation);
+  }
+
+  public Accommodation findById(Long accommodationId) {
+    return accommodationRepository.findById(accommodationId).orElseThrow(() -> new IllegalArgumentException("Accommodation not found."));
   }
 }

@@ -28,7 +28,7 @@ public class SecurityConfig {
     http
         .authorizeHttpRequests(authorizeRequests ->
             authorizeRequests
-                .requestMatchers("/", "/login", "/**").permitAll() // /public 아래의 URL에 대한 공개 액세스를 허용합니다.
+                .requestMatchers("/", "/login", "/host/**", "/user/**", "/**").permitAll() // /public 아래의 URL에 대한 공개 액세스를 허용합니다.
                 .anyRequest().authenticated() // 기타 모든 요청에는 인증이 필요합니다.
         )
         .csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/**"))) // CSRF(Cross-Site Request Forgery) 방지)

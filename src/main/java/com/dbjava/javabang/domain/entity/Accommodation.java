@@ -41,6 +41,9 @@ public class Accommodation {
   @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<AccommodationImage> images = new ArrayList<>();
 
+  @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Wishlist> wishlists = new ArrayList<>();
+
 
 // 대분류 (호텔, 모텔, etc)
   @Enumerated(EnumType.STRING)
@@ -91,8 +94,12 @@ public class Accommodation {
   private Integer discountPercentage = 0;
 
 
+
   public Accommodation(RequestAccommodation dto, User findUser) {
     this.user = findUser;
+
+    // 위시 리스트
+
 
     // 이미지
     this.images.add(new AccommodationImage(this, dto.getMainImagePath()));
@@ -101,12 +108,12 @@ public class Accommodation {
     }
 
     // 카테고리
-    String category = dto.getCategory();
-    matchCategory(category);
+    String getCategory = dto.getCategory();
+    matchCategory(getCategory);
 
     // 방 유형
-    String type = dto.getRoomType();
-    matchType(type);
+    String getType = dto.getRoomType();
+    matchType(getType);
 
     this.title = dto.getTitle();
     this.address = dto.getSigugun() + " " + dto.getGueup() + " " + dto.getRoad();
