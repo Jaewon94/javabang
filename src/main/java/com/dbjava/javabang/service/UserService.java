@@ -44,4 +44,12 @@ public class UserService {
   public User findById(Long userId) {
     return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found."));
   }
+
+  public User findByUsername(String username) {
+    return userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("User not found."));
+  }
+
+  public User getUserByUsername(String name) {
+    return userRepository.findByUsername(name).orElseThrow(() -> new IllegalArgumentException("User not found."));
+  }
 }

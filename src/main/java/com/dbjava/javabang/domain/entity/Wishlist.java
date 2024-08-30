@@ -1,5 +1,6 @@
 package com.dbjava.javabang.domain.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -32,4 +33,12 @@ public class Wishlist {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "accommodation_id", nullable = false)
   private Accommodation accommodation;
+
+  public Wishlist(User user, Accommodation accommodation) {
+    this.user = user;
+    this.accommodation = accommodation;
+
+    user.getWishlists().add(this);
+    accommodation.getWishlists().add(this);
+  }
 }
