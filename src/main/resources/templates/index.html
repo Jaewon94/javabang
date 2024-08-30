@@ -49,13 +49,13 @@
               <div class="d-flex justify-content-between align-items-center mt-auto">
                 <span class="h5 mb-0" th:text="${#numbers.formatDecimal(accommodation.pricePerNight, 1, 'COMMA', 0, 'POINT')} + '원'"></span>
                 <div th:if="${isLoggedIn}" class="wishlist-icons">
-                  <img class="wish" id="wishTrue"
+                  <img class="wish wishTrue"
                        th:classappend="${wishlistStatus.get(accommodation.id) ? '': 'remove'}"
                        th:data-accommodation-id="${accommodation.id}"
                        src="images/essentials/heart.png"
                        alt="In Wishlist"
                        th:onclick="'handleWishlistClick(' + ${accommodation.id} +', false)'"/>
-                  <img class="wish" id="wishFalse"
+                  <img class="wish wishFalse"
                        th:classappend="${wishlistStatus.get(accommodation.id) ? 'remove': ''}"
                        th:data-accommodation-id="${accommodation.id}"
                        src="images/essentials/blankHeart.png"
@@ -140,8 +140,8 @@
 
     // UI 업데이트를 위한 헬퍼 함수
     function updateWishlistUI(accommodationId, isInWishlist) {
-      const wishTrue = document.getElementById("wishTrue");
-      const wishFalse = document.getElementById("wishFalse");
+      const wishTrue = document.querySelector(`.wishTrue[data-accommodation-id="${accommodationId}"]`);
+      const wishFalse = document.querySelector(`.wishFalse[data-accommodation-id="${accommodationId}"]`);
       if (wishTrue && wishFalse) {
         if (isInWishlist) {
           wishTrue.classList.remove("remove");
